@@ -193,7 +193,7 @@
             history.pushState(null, null, "search?text=" + encodeURIComponent(match));
 			var fromDate = this.convertDate(this.FromDatePick.get("formattedDate"));
             var toDate = this.convertDate(this.ToDatePick.get("formattedDate"));
-            if (isNaN(fromDate) || isNaN(toDate))
+            if (fromDate == 'NaN/NaN/NaN' || toDate == 'NaN/NaN/NaN')
             {
                 fromDate = this.FromDatePick.get("formattedDate");
                 toDate = this.ToDatePick.get("formattedDate");
