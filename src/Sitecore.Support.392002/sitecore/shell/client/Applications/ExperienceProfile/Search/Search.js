@@ -192,7 +192,12 @@
 
             history.pushState(null, null, "search?text=" + encodeURIComponent(match));
 			var fromDate = this.convertDate(this.FromDatePick.get("formattedDate"));
-			var toDate = this.convertDate(this.ToDatePick.get("formattedDate"));
+            var toDate = this.convertDate(this.ToDatePick.get("formattedDate"));
+            if (isNaN(fromDate) || isNaN(toDate))
+            {
+                fromDate = this.FromDatePick.get("formattedDate");
+                toDate = this.ToDatePick.get("formattedDate");
+            }
             providerHelper.addQueryParameter(this.SearchDataProvider, "Match", encodeURIComponent(match));
             providerHelper.addQueryParameter(this.SearchDataProvider, "FromDate", encodeURIComponent(fromDate));
             providerHelper.addQueryParameter(this.SearchDataProvider, "ToDate", encodeURIComponent(toDate));
